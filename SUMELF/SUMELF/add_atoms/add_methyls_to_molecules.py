@@ -193,7 +193,6 @@ def add_methyls_to_molecules(no_of_methyls_to_add_to_mols, molecules, molecule_g
 			to_string += '\n'
 		to_string += 'Check this.\n'
 		print(to_string)
-		import pdb; pdb.set_trace()
 		raise Exception(to_string)
 
 	# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 

@@ -330,7 +330,6 @@ def centre_molecule_in_cell(connected_molecule, crystal_cell_lattice, move_molec
 								to_string += 'This should never happen, and indicate a programming error.\n'
 								to_string += 'Check this.'
 								print(to_string)
-								import pdb; pdb.set_trace()
 								raise Exception(to_string)
 							'''
 

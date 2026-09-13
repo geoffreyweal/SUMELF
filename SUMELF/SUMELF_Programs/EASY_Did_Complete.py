@@ -5,7 +5,7 @@ This program will determine which of your dimers have been successfully calculat
 '''
 import os
 
-from ECCP.ECCP_Programs.Did_Complete_Main import determine_if_all_gaussian_job_completed
+from SUMELF.SUMELF_Programs.Did_Complete_Main import determine_if_all_gaussian_job_completed
 
 class CLICommand:
     """Will determine which ATC and EET jobs have completed and which ones have not.

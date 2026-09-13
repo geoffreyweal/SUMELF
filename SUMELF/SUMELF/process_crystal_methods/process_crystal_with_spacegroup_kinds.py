@@ -54,7 +54,6 @@ def process_crystal_with_spacegroup_kinds(crystal, crystal_graph=None, bonds_to_
 	raise Exception('Error: Check if working correctly')
 
 	raise Exception('Make sure that molecules are numbered based in order of the lowest index atom of the molecule in the crystal. Also make sure atoms in each molecule are ordered like that in the crystal.')
-	import pdb; pdb.set_trace()
 
 	# First, get all the spacegroup kinds in the crystal file.
 	spacegroup_kinds = crystal.arrays['spacegroup_kinds']

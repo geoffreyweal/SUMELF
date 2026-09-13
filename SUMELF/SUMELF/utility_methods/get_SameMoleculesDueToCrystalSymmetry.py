@@ -77,7 +77,6 @@ def get_SameMoleculesDueToCrystalSymmetry(SameMoleculesDueToCrystalSymmetry_as_s
 		to_string += f'SameMoleculesDueToCrystalSymmetry: {SameMoleculesDueToCrystalSymmetry}\n'
 		to_string += 'Check this.'
 		print(to_string)
-		import pdb; pdb.set_trace()
 		raise Exception(to_string)
 
 	# Ninth, return SameMoleculesDueToCrystalSymmetry

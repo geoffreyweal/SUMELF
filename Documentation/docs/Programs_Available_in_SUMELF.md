@@ -13,7 +13,7 @@ To use the ``get_molecules`` module, type the following into your terminal:
 cd path_to_crystal_database
 
 # Second, run the get_molecules program:
-SUMELF get_molecules crystal_database
+sumelf get_molecules crystal_database
 ```
 
 This will separate the crystal into its individual molecules, and save them as individual ``xyz`` file in folder called ``crystal_database_molecules``. You can view these molecules using your favourite GUI viewer, mine is ``ase gui`` ([click here for more about ``ase gui``](https://wiki.fysik.dtu.dk/ase/ase/gui/basics.html)).

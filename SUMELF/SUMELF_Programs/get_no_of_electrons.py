@@ -9,7 +9,7 @@ from ase.io import read
 from collections import Counter
 
 class CLICommand:
-    """Will determine which geometric optimisation jobs have completed and which ones have not.
+    """Will determine the number of electrons in each molecule of the given crystal.
     """
 
     @staticmethod

@@ -51,12 +51,10 @@ def get_new_bonding_unit_vectors(no_of_Hs_to_attach, bonding_unit_vectors, molec
 		to_string  = 'Issue with adding hydrogens to molecule. This program has only been designed to add hydrogens to: '+str(Atoms_set_up_for_adding_hydrogens_to)+'\n'
 		to_string += 'The atom you are trying to add hydrogens to is '+str(atom_element)+'\n'
 		to_string += 'Check this out.'
-		import pdb; pdb.set_trace()
 		raise Exception(to_string)
 
 	# Third, obtain the new bonding unit vectors for attaching new hydrogens to the atom of interest.
 	if   no_of_Hs_to_attach == 0:
-		import pdb; pdb.set_trace()
 		raise Exception('Warning: You are not adding any hydrogens to an atom in this crystal.')
 	elif no_of_Hs_to_attach == 1:
 		new_bonding_unit_vectors = obtain_new_bonding_unit_vectors_for_one_H_to_attach  (bonding_unit_vectors, molecule, molecule_graph, index_to_attach_Hs_to, atom_element, number_of_lone_pairs_of_electrons, crystal, crystal_graph, element_to_attach=element_to_attach, logger=logger)
@@ -115,7 +113,6 @@ def get_new_bonding_unit_vectors(no_of_Hs_to_attach, bonding_unit_vectors, molec
 
 
 
-	import pdb; pdb.set_trace()
 
 
 	molecule_graph[index_to_attach_Hs_to]
@@ -140,7 +137,6 @@ def get_new_bonding_unit_vectors(no_of_Hs_to_attach, bonding_unit_vectors, molec
 
 	# Eighth, make sure that hydrogens are being added to the system, otherwise why are we using this method.
 	if no_of_Hs_to_attach == 0:
-		import pdb; pdb.set_trace()
 		raise Exception('Warning: You are not adding any hydrogens to an atom in this crystal.')
 
 	# Sixth, determine how many neighbours your atom will have after you attach hydrogens to it.
@@ -152,12 +148,10 @@ def get_new_bonding_unit_vectors(no_of_Hs_to_attach, bonding_unit_vectors, molec
 		view(molecule)
 		print('Can not add hydrogens to an atoms that will have more than 4 atoms around it in total. index: '+str(index_to_attach_Hs_to))
 		print(index_to_attach_Hs_to, total_no_of_Hs_to_attach, hybridisation, formal_charge)
-		import pdb; pdb.set_trace()
 		exit()
 
 
 
-	import pdb; pdb.set_trace()
 
 	# Eighth, determine the number of valence electrons attached to the index_to_attach_Hs_to atom.
 	number_of_lone_pairs_of_electrons = get_number_of_lone_pairs_of_electron_pairs(hybridisation, total_no_of_neighbours_after_adding_H_atoms, formal_charge, index_to_attach_Hs_to, molecule, molecule_graph, logger=logger)
@@ -209,7 +203,6 @@ def obtain_new_bonding_unit_vectors(bonding_unit_vectors, molecule, molecule_gra
 
 	# Second, obtain the new bonding unit vectors for attaching new hydrogens to the atom of interest.
 	if no_of_Hs_to_attach == 0:
-		import pdb; pdb.set_trace()
 		raise Exception('Warning: You are not adding any hydrogens to an atom in this crystal.')
 	if no_of_Hs_to_attach == 1:
 		new_bonding_unit_vectors = obtain_new_bonding_unit_vectors_for_one_H_to_attach  (bonding_unit_vectors, molecule, molecule_graph, index_to_attach_Hs_to, atom_element, number_of_lone_pairs_of_electrons, data_for_getting_new_bonding_vector, element_to_attach=element_to_attach, logger=logger)

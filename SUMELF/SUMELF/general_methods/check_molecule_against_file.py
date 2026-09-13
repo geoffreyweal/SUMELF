@@ -5,7 +5,6 @@ This method is designed to compare the molecule object with the molecule on file
 """
 import os
 from ase.io        import read
-from ase.visualize import view
 
 # The following variable privide the thresholds for position and charge
 position_max_threshold = 0.0000001
@@ -85,7 +84,6 @@ def check_molecule_against_file(molecule, path_to_molecule_on_file):
 			to_string += f'{atom_index}: {str(atom)} --> {str(atom_on_file)}\n'
 		to_string += '\n'
 		to_string += 'Check this.'
-		view([molecule, molecule_on_file])
 		raise Exception(to_string)
 
 	# Eighth, obtain the total charge for the original molecule and the molecule on file.
@@ -102,7 +100,6 @@ def check_molecule_against_file(molecule, path_to_molecule_on_file):
 		to_string += f'Total charge of the molecule on file: {total_charge_of_molecule_on_file}\n'
 		to_string += '\n'
 		to_string += 'Check this.'
-		view([molecule, molecule_on_file])
 		raise Exception(to_string)
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 

@@ -96,10 +96,6 @@ def check_for_H_pi_bonding(copy_molecule, copy_molecule_graph, index_to_attach_H
 			if dihedral_angle > (pi/2.0):
 				dihedral_angle = pi - dihedral_angle
 
-			if dihedral_angle <= adjacent_atom_H_ring_normal_angle_tolerance:
-
-				import pdb; pdb.set_trace()
-
 	########################################################
 	# PART 4: Check hydrogens that are nearby aromatic rings
 	########################################################
@@ -129,11 +125,6 @@ def check_for_H_pi_bonding(copy_molecule, copy_molecule_graph, index_to_attach_H
 		# 4.5.2: Determine if this hydrogen is close to a pi ring
 		if is_there_a_H_pi_interaction_between_crystal_and_H(neighbour_hydrogen_index, neighbour_hydrogen_position, crystal_aromatic_rings, crystal):
 			crystal_H_pi_ring_indices.append(neighbour_hydrogen_index)
-
-	if not len(hydrogens_that_have_interactions_with_pi_rings + crystal_H_pi_ring_indices) == 0:
-		from ase.visualize import view
-		view(copy_molecule)
-		import pdb; pdb.set_trace()
 
 # ---------------------------------------------------------------------------------------------------------------------------
 		
@@ -208,7 +199,6 @@ def is_there_a_H_pi_interaction_between_crystal_and_H(neighbour_hydrogen_index, 
 					if angle_between_point_and_plane_normal_from_ring_atom > (pi/2.0):
 						angle_between_point_and_plane_normal_from_ring_atom = pi - angle_between_point_and_plane_normal_from_ring_atom
 
-					import pdb; pdb.set_trace()
 
 					if angle_between_point_and_plane_normal_from_ring_atom <= T_H_above_ring_angle_tolerance:
 						return True

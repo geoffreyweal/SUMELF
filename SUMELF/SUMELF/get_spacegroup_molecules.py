@@ -97,9 +97,7 @@ def get_spacegroup_molecules(molecules, molecule_graphs, SolventsList, symmetry_
 					to_string  = 'Error: The original molecule (with the identity symmetry operation) does not have the expected name when applied to the full crystal (including all the symmetry operations).\n'
 					to_string += 'This may indicate that in the original crystal there is/are molecule(s) that are duplicated on top of each other (have the same positions).\n'
 					to_string += f'Original names of molecules: {sorted(molecules.keys())}\n'
-					from ase.visualize import view
 					sorted_molecules = sorted(molecules.items(), key=lambda x:x[0])
-					view([molecule for mol_name, molecule in sorted_molecules])
 					to_string += f'Problem discovered for {original_molecule_name} where it wants to be named {new_molecule_name}\n'
 					to_string += 'check this'
 					raise Exception(to_string)

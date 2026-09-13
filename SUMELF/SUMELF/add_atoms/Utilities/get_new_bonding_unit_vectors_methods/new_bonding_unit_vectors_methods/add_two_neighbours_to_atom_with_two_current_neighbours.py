@@ -72,7 +72,6 @@ def add_two_neighbours_to_atom_with_two_current_neighbours(bonding_unit_vectors,
 	# Fourth, obtain the angle that you want between molecules.
 	new_bonding_angle = get_bond_angle(atom_element, no_of_Hs_to_attach+no_of_neighbouring_atoms_before_adding_hydrogens, number_of_lone_pairs_of_electrons, element_to_attach=element_to_attach)
 	if not isinstance(new_bonding_angle,float):
-		import pdb; pdb.set_trace()
 		raise Exception('Error: new_bonding_angle need to be a float')
 
 	# Fifth, obtain the matrix for rotating the central_point vector around the perpendicular_vector axis.
@@ -155,7 +154,6 @@ def get_rotation_matrix_for_two_neighbours_one_atom_one_lone_pair_of_electrons(b
 	if not ((get_distance(perpendicular_vector, perpendicular_vector_test) < distance_tolerance) or (get_distance(-perpendicular_vector, perpendicular_vector_test) < distance_tolerance)):
 		print('perpendicular_vector = '+str(perpendicular_vector))
 		print('perpendicular_vector_test = '+str(perpendicular_vector_test))
-		import pdb; pdb.set_trace()
 		raise Exception('perpendular vector should be the same as the test.')
 
 	# Sixth, obtain the length of vector3, which is the hypotenuse of the second triangle that is at right angles to the first triangle along middle_vector

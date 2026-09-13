@@ -468,7 +468,6 @@ def remove_solvent_from_molecule_dicts(solvent_components, copied_molecules, cop
 		raise Exception(to_string)
 	'''
 
-	import pdb; pdb.set_trace()
 	raise Exception('Check that everything is working as expected')
 
 def unwrap_molecule(new_molecule, copied_molecule_graphs, name):
@@ -499,7 +498,6 @@ def unwrap_molecule(new_molecule, copied_molecule_graphs, name):
 		molecule_graph = copied_molecule_graphs[name]
 	else:
 		molecule_graph = obtain_graph(new_molecule)
-		import pdb; pdb.set_trace()
 		raise Exception('Check this out.')
 
 	# Second, reconnect the molecule after performing the symmetry operation.

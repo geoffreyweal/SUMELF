@@ -70,10 +70,7 @@ def add_two_neighbours_to_atom_with_one_current_neighbour(bonding_unit_vectors, 
 	# Fifth, obtain the angle to rotate the hydrogen to add around the normal axis by.
 	new_bonding_angle = get_bond_angle(atom_element, no_of_Hs_to_attach+no_of_neighbouring_atoms_before_adding_hydrogens, number_of_lone_pairs_of_electrons, element_to_attach=element_to_attach)
 	if new_bonding_angle == 'flat':
-		from ase.visualize import view
-		view(molecule)
 		print('index_to_attach_Hs_to = '+str(index_to_attach_Hs_to))
-		import pdb; pdb.set_trace()
 		raise Exception('Flat has come up. Check to make sure the angle should be right')
 
 	# Sixth, obtain the matrix to rotate the hydrogen to add around the normal axis.
