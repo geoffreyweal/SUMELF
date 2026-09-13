@@ -138,7 +138,6 @@ def make_solvent_graph(molecule_data):
 
 	# Sixth, remap the solvent graph so that the indices are consecutive. 
 	print('Check the below is working as expected.')
-	import pdb; pdb.set_trace()
 	remap_atoms = {old_atom_index: new_atom_index for (new_atom_index, old_atom_index) in enumerate(sorted(solvent_graph.nodes.keys()))}
 
 	# Seventh, remap the nodes in solvent_graph with consecutive indices. 

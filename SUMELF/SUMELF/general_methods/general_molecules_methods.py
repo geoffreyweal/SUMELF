@@ -98,9 +98,11 @@ def get_centre_of_molecule(molecule, include_hydrogens=True):
 
     # Second, remove any atoms that are hydrogens from the atom_positions list (if you dont want to include hydrogens)
     if not include_hydrogens:
-        elements = atom_positions.get_chemical_symbols()
+        elements = molecule.get_chemical_symbols()
         rows_to_remove = [atom_index for atom_index in range(len(elements)-1,-1,-1) if (elements[atom_index] in ['H', 'D'])]
-        atom_positions = np.delete(atom_positions, rows_to_remove, axis=1)
+        # axis=0 removes the rows for those atoms. axis=1 would remove x/y/z coordinate columns instead.
+        if len(rows_to_remove) < len(elements):
+            atom_positions = np.delete(atom_positions, rows_to_remove, axis=0)
 
     # Third, get the centre of the molecule.
     centre_of_molecule = np.sum(atom_positions, axis=0)/float(len(atom_positions))
@@ -137,7 +139,6 @@ def get_number_of_lone_pairs_of_electron_pairs(hybridisation, total_no_of_neighb
     elif hybridisation == 'sp':
         no_of_sigma_bonds = 2
     else:
-        import pdb; pdb.set_trace()
         raise Exception('Error: Only sp3, sp2, and sp hybridisations have been coded for currently. hybridisation given = '+str(hybridisation))
 
     # Second, determine the number of lone pairs of electrons required based on the hybridisation and the total number of atoms surrounding the molecule.
@@ -146,7 +147,6 @@ def get_number_of_lone_pairs_of_electron_pairs(hybridisation, total_no_of_neighb
     # Third, if the formal charge of the atom is not zero, change the number of number_of_lone_pairs_of_electrons
     if not formal_charge == 0:
         print('Write this part of code.')
-        import pdb; pdb.set_trace()
         raise Exception('Dont contribute until this part of the code is written')
 
     # Fourth, if number_of_lone_pairs_of_electrons, the crystallographer may have placed to many neighbours around an atom in 
@@ -477,7 +477,6 @@ def is_the_same_molecule_exact(molecule1_elements, molecule2_elements, molecule1
     """
 
     print('Finish off the documentation here.')
-    import pdb; pdb.set_trace()
     raise Exception('This same method can be found in make_crystal_methods/same_molecules. Consider updating so there are no duplicate methods.')
 
     indices_of_molecule_2_to_investigate = list(range(len(molecule2_elements)))

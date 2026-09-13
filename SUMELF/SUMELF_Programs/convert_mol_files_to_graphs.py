@@ -6,7 +6,7 @@ This script is designed to convert mol files to graphs.
 from SUMELF.SUMELF.general_methods.is_solvent_methods.solvent_graph_methods import create_graph_from_mol_files
 
 class CLICommand:
-    """Will mconvert mol files to graphs.
+    """Will convert mol files to graphs.
     """
 
     @staticmethod

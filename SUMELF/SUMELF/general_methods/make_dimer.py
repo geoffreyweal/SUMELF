@@ -54,7 +54,6 @@ def make_dimer(molecules, mol1_name, mol2_name, displacement, move_centre_of_mas
 
 	if move_to_centre_of_unit_cell:
 		print('Write here')
-		import pdb; pdb.set_trace()
 		raise Exception('To write this method here')
 
 	# Fourth, return the dimer and the two molecules used in the dimer. 

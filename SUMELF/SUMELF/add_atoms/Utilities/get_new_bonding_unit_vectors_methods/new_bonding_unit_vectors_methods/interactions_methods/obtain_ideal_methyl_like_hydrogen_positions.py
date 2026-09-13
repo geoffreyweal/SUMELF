@@ -104,7 +104,6 @@ def obtain_ideal_methyl_like_hydrogen_positions(molecule, molecule_graph, index_
 
 	view([molecule, debugging_molecule])
 
-	import pdb; pdb.set_trace()
 
 	'''
 

@@ -8,21 +8,15 @@ class CLIError(Exception):
     A subcommand may raise this.  The message will be forwarded to
     the error() method of the argument parser."""
 
-'''
-commands = [
-    ('mass_submit',             'SUMELF.SUMELF_Programs.SUMELF_submit_gaussian_jobs_to_slurm'),
-    ('mass_scancel',            'SUMELF.SUMELF_Programs.SUMELF_mass_scancel'),
-    ('get_solvent_graph_files', 'SUMELF.SUMELF_Programs.convert_mol_files_to_graphs'),
-]
-'''
-
 commands = [
     ('get_molecules',           'SUMELF.SUMELF_Programs.get_molecules'),
     ('get_no_of_electrons',     'SUMELF.SUMELF_Programs.get_no_of_electrons'),
     ('get_solvent_graph_files', 'SUMELF.SUMELF_Programs.convert_mol_files_to_graphs'),
+    ('mass_scancel',            'SUMELF.SUMELF_Programs.EASY_mass_scancel'),
+    ('did_complete',            'SUMELF.SUMELF_Programs.EASY_Did_Complete'),
 ]
 
-def main(prog='SUMELF', description='SUMELF command line tool.',version=__version__, commands=commands, hook=None, args=None):
+def main(prog='sumelf', description='SUMELF command line tool.',version=__version__, commands=commands, hook=None, args=None):
     parser = argparse.ArgumentParser(prog=prog,description=description,formatter_class=Formatter)
     parser.add_argument('--version', action='version',version='%(prog)s-{}'.format(version))
     parser.add_argument('-T', '--traceback', action='store_true')

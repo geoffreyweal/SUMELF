@@ -193,7 +193,6 @@ def add_ethyls_to_molecules(no_of_ethyls_to_add_to_mols, molecules, molecule_gra
 			to_string += '\n'
 		to_string += 'Check this.\n'
 		print(to_string)
-		import pdb; pdb.set_trace()
 		raise Exception(to_string)
 
 	# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 

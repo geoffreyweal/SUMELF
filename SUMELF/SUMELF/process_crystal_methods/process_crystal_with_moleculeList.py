@@ -287,7 +287,6 @@ def process_crystal_with_moleculeList(crystal, crystal_graph, bonds_to_ignore=No
 
 	# Twelfth, make sure that the molecules have an associated graph
 	if not sorted(molecules.keys()) == sorted(molecule_graphs.keys()):
-		import pdb; pdb.set_trace()
 		to_string  = 'Error: There are missing molecules and/or molecule graphs.\n'
 		to_string += f'Molecule names:       {sorted(molecule_names.keys())}\n'
 		to_string += f'Molecule Graph names: {sorted(molecule_graphs.keys())}\n'

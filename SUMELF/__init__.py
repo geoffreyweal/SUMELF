@@ -1,10 +1,10 @@
 # The information about the Supporting Methods for Electronic Functions (SUMELF) program
 
 __name__    = 'SUMELF (Supporting Methods for Electronic Functions) Program'
-__version__ = '0.84'
+__version__ = '0.85.0'
 __author__  = 'Dr. Geoffrey Weal, Dr. Chayanit Wechwithayakhlung, Dr. Josh Sutton, Dr. Daniel Packwood, Dr. Paul Hume, Prof. Justin Hodgkiss'
 
-import sys, importlib
+import sys, importlib.util
 
 if sys.version_info[0] == 2:
 	toString = ''
@@ -120,27 +120,6 @@ if not networkx_found:
 	raise ImportError(toString)	
 
 # ------------------------------------------------------------------------------------------------------------------------
-
-pymatgen_spec = importlib.util.find_spec("pymatgen")
-pymatgen_found = (pymatgen_spec is not None)
-if not pymatgen_found:
-	toString = ''
-	toString += '\n'
-	toString += '================================================'+'\n'
-	toString += 'This is the Supporting Methods for Electronic Functions (SUMELF) program'+'\n'
-	toString += 'Version: '+str(__version__)+'\n'
-	toString += '\n'
-	toString += 'The SUMELF program requires the "pymatgen" program.'+'\n'
-	toString += '\n'
-	toString += 'Install pymatgen through pip by following the instruction in https://github.com/GardenGroupUO/SUMELF'+'\n'
-	toString += 'These instructions will ask you to install pymatgen by typing the following into your terminal\n'
-	toString += '\n'
-	toString += 'pip3 install --user --upgrade pymatgen\n'
-	toString += '\n'
-	toString += 'This program will exit before beginning'+'\n'
-	toString += '================================================'+'\n'
-	raise ImportError(toString)	
-
 # ------------------------------------------------------------------------------------------------------------------------
 
 packaging_spec = importlib.util.find_spec("packaging")
@@ -185,47 +164,7 @@ if not tqdm_found:
 	toString += '================================================'+'\n'
 
 # ------------------------------------------------------------------------------------------------------------------------
-
-tqdm_spec = importlib.util.find_spec("xlsxwriter")
-tqdm_found = (tqdm_spec is not None)
-if not tqdm_found:
-	toString = ''
-	toString += '\n'
-	toString += '================================================'+'\n'
-	toString += 'This is the Supporting Methods for Electronic Functions (SUMELF) program'+'\n'
-	toString += 'Version: '+str(__version__)+'\n'
-	toString += '\n'
-	toString += 'The SUMELF program requires the "xlsxwriter" program.'+'\n'
-	toString += '\n'
-	toString += 'Install xlsxwriter through pip by following the instruction in https://github.com/GardenGroupUO/SUMELF'+'\n'
-	toString += 'These instructions will ask you to install xlsxwriter by typing the following into your terminal\n'
-	toString += '\n'
-	toString += 'pip3 install --user --upgrade xlsxwriter\n'
-	toString += '\n'
-	toString += 'This program will exit before beginning'+'\n'
-	toString += '================================================'+'\n'
-
 # ------------------------------------------------------------------------------------------------------------------------
-
-mprof_spec = importlib.util.find_spec("memory_profiler")
-mprof_found = (tqdm_spec is not None)
-if not mprof_found:
-	toString = ''
-	toString += '\n'
-	toString += '================================================'+'\n'
-	toString += 'This is the Supporting Methods for Electronic Functions (SUMELF) program'+'\n'
-	toString += 'Version: '+str(__version__)+'\n'
-	toString += '\n'
-	toString += 'The SUMELF program requires the "memory_profiler" program.'+'\n'
-	toString += '\n'
-	toString += 'Install memory_profiler through pip by following the instruction in https://github.com/GardenGroupUO/SUMELF'+'\n'
-	toString += 'These instructions will ask you to install memory_profiler by typing the following into your terminal\n'
-	toString += '\n'
-	toString += 'pip3 install --user --upgrade memory_profiler\n'
-	toString += '\n'
-	toString += 'This program will exit before beginning'+'\n'
-	toString += '================================================'+'\n'
-
 # ------------------------------------------------------------------------------------------------------------------------
 
 __author_email__ = 'geoffrey.weal@vuw.ac.nz'
@@ -247,6 +186,8 @@ from SUMELF.SUMELF.general_methods.angle_methods                                
 from SUMELF.SUMELF.general_methods.check_molecule_against_file                   import check_molecule_against_file
 from SUMELF.SUMELF.general_methods.convert_between_ijk_and_cell_position         import convert_ijk_to_displacement_vector, convert_position_into_ijk_lengths
 from SUMELF.SUMELF.general_methods.distance_methods                              import get_distance, get_xyz_distances, less_than_or_equal_to_max_bondlength, are_two_values_within_eachother, are_two_lists_within_eachother
+from SUMELF.SUMELF.write_to_disk_methods.shared_methods                          import change_folder_name_components, input_commands_for_multiwfn, convert_dict_for_bash_input, slurmSL_header, load_gaussian_programs, load_orca_programs, make_gaussian_temp_folder, remove_gaussian_temp_files, make_orca_temp_folder, remove_orca_temp_files
+from SUMELF.SUMELF.write_to_disk_methods.orca_modified_RE                        import write_orca_in_RE
 from SUMELF.SUMELF.general_methods.general_molecules_methods                     import read_crystal, get_centre_of_mass, get_centre_of_molecule, get_number_of_lone_pairs_of_electron_pairs, get_hybridisation_from_ASE, get_hybridisation_from_CSD, get_bond_type_from_CSD, get_atomic_rings_in_ase_object, get_translation_to_move_COM_inside_unit_cell, is_the_same_molecule_exact
 from SUMELF.SUMELF.general_methods.geometry_methods                              import get_unit_vector, rotate_vector_around_axis, project_point_onto_line, project_u_onto_v, project_point_onto_plane, get_reflection_matrix_from_plane, planeFit, project_point_onto_plane, get_rotation_matrix_around_arbitrary_axis, get_cross_product_matrix
 from SUMELF.SUMELF.general_methods.get_symmetry_operations                       import get_symmetry_operations
@@ -357,13 +298,16 @@ calculator_methods                                = ['Coulomb']
 # Methods related to the Electronic_Crystal_Calculation_Prep program that are used in other programs
 ECCP_read_files_methods                            = ['what_ECCP_Information_files_do_we_have', 'run_which_ECCP_operations', 'get_ECCP_Information_data', 'check_ECCP_Information_details', 'get_crystal_file_from_ECCP_Information', 'get_dimer_details_data', 'get_equivalent_molecule_group_data', 'get_equivalent_dimer_group_data', 'check_consistancy_between_files']
 
+# Methods for writing calculation input files and slurm submit scripts. Shared by ECCP and ReJig.
+write_to_disk_methods                              = ['change_folder_name_components', 'input_commands_for_multiwfn', 'convert_dict_for_bash_input', 'slurmSL_header', 'load_gaussian_programs', 'load_orca_programs', 'make_gaussian_temp_folder', 'remove_gaussian_temp_files', 'make_orca_temp_folder', 'remove_orca_temp_files', 'write_orca_in_RE']
+
 # Utility methods
 folder_methods                                    = ['make_folder', 'remove_folder', 'move_folder']
 get_SameMoleculesDueToCrystalSymmetry_methods     = ['get_SameMoleculesDueToCrystalSymmetry']
 utility_methods                                   = folder_methods + get_SameMoleculesDueToCrystalSymmetry_methods
 
 # Methods to access
-__all__ = making_and_processing_crystal_methods + molecules_inbetween_dimers_methods + general_methods + ase_associated_graph_methods + graph_matching_methods + make_crystal_associated_methods + add_atoms_methods + ATC_and_charge_methods + cell_generator_methods + calculator_methods + ECCP_read_files_methods + utility_methods
+__all__ = making_and_processing_crystal_methods + molecules_inbetween_dimers_methods + general_methods + ase_associated_graph_methods + graph_matching_methods + make_crystal_associated_methods + add_atoms_methods + ATC_and_charge_methods + cell_generator_methods + calculator_methods + ECCP_read_files_methods + write_to_disk_methods + utility_methods
 
 # ------------------------------------------------------------------------------------------------------------------------
 

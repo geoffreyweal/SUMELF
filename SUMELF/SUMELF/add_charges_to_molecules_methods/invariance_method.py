@@ -11,7 +11,6 @@ from copy import deepcopy
 from itertools import product
 
 from ase import Atoms
-from ase.visualize import view
 
 from scipy.linalg import orthogonal_procrustes
 from scipy.spatial import procrustes
@@ -175,9 +174,6 @@ def assigned_ATCs_to_molecules_invariance_method(ATC_ase_objects, molecules, mol
 		unassigned_molecules = list(set(range(len(molecules))) | set(molecules_that_have_been_assigned_an_ATC_to))
 		print('Molecules that have not been assigned: '+str(unassigned_molecules))
 		print('Molecules that have been assigned: '+str(molecules_that_have_been_assigned_an_ATC_to))
-		view(molecules)
-		view(ATC_ase_objects)
-		import pdb; pdb.set_trace()
 		exit('This program with finished without completing.')
 
 	# hopefully all ATC's have been matched with the appropriate molecule.
@@ -252,7 +248,6 @@ def are_molecule_and_ATC_variant(mol_elements, ATC_elements, mol_distances, ATC_
 		print('However, they should be the same as the networkx graph nodes have been given information about the element for each atom.')
 		print('Therefore, this should have been picked up by GraphMatcher object.')
 		print('Check this out')
-		import pdb; pdb.set_trace()
 		exit('This program will finish without completing.')
 
 	# determine if the dimer are varient given the particular ordering of atoms in dimers 1 and 2.

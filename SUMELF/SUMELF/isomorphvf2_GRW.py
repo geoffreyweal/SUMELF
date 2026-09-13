@@ -168,7 +168,6 @@ class GraphMatcher:
         # debugging for the moment to check something about how this code works. GRW 3/3/22
         if not (len(all_unique_icos) == all_ico_counter):
             print('Not all_unique')
-            import pdb; pdb.set_trace()
 
         # return all_unique_icos
         return all_unique_icos
@@ -324,7 +323,6 @@ class GraphMatcher:
             to_string += str(exception)+'\n\n'
             to_string += 'Check this.'
             print(to_string)
-            import pdb; pdb.set_trace()
             raise Exception(to_string)
 
         if self.test == "mono":

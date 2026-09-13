@@ -30,7 +30,6 @@ def get_angle(position_left, position_centre, position_right):
 
 	# First, make sure that the positions are no too close to each other that it would be unrealistic
 	if (get_distance(position_left, position_centre) <= distance_tolerance) or (get_distance(position_centre, position_right) <= distance_tolerance) or (get_distance(position_right, position_left) <= distance_tolerance):
-		import pdb; pdb.set_trace()
 		raise Exception('Error: The position_left and/or position_right and/or position_centre positions are too close to each other. Uncertainties in positions may lead to inaccurate angle output. Check this out.')
 
 	# Second, get the unit vectors for the position_left - position_centre vector and the position_right - position_centre vector.

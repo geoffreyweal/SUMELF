@@ -101,7 +101,6 @@ def get_best_bonding_vector_with_one_neighbour(molecule, donor_index, neighbour_
 		else:
 			for _ in range(100):
 				acceptor_unit_vector = get_unit_vector(np.array((uniform(-1.0,1.0), uniform(-1.0,1.0), uniform(-1.0,1.0))))
-				import pdb; pdb.set_trace()
 				if above_angle_tolerance(acceptor_unit_vector, normal_axis, angle_tolerance, upper_angle_limit=math_PI):
 					break
 			else:
@@ -171,7 +170,6 @@ def get_best_bonding_vector_with_one_neighbour(molecule, donor_index, neighbour_
 	import matplotlib.pyplot as plt
 	plt.plot(force_vs_angle.keys(), force_vs_angle.values())
 	plt.show()
-	import pdb; pdb.set_trace()
 	raise Exception('Check this method is working.')
 	'''
 

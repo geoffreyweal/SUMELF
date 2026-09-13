@@ -88,11 +88,8 @@ def add_ethyls_to_molecule(no_of_ethyl_to_add_to_mol, molecule, molecule_graph, 
 
 		# 5.6: Check that the molecule does not contain more than 4 neighbours. We are only deal with molecules that obey the octet rule. 
 		if total_number_of_neighbours_after_ethyls_added > 4:
-			from ase.visualize import view
-			view(molecule)
 			print('Can not add ethyl groups to an atoms that will have more than 4 atoms around it in total. index: '+str(node_name))
 			print(node_name, total_number_of_neighbours_after_ethyls_added, hybridisation, formal_charge)
-			import pdb; pdb.set_trace()
 			exit()
 
 		# 5.7: Obtain all the bonding unit vectors for atoms that already exist abount atom node_name in the molecule. 
@@ -117,7 +114,6 @@ def add_ethyls_to_molecule(no_of_ethyl_to_add_to_mol, molecule, molecule_graph, 
 			to_string += 'len(new_bonding_unit_vectors) = '+str(len(new_bonding_unit_vectors))+'\n'
 			to_string += 'This indicates there is a programming error. Check this out.'
 			print(to_string)
-			import pdb; pdb.set_trace()
 			raise Exception(to_string)
 
 		# --------------------------------------------------------------------------------------------------------
@@ -283,7 +279,6 @@ def add_ethyls_to_molecule(no_of_ethyl_to_add_to_mol, molecule, molecule_graph, 
 					to_string += f'Element change after adding hydrogens to the system: {element_counter_diff}.\n'
 					to_string += 'What this should be: '+str({'H': 5})+'.\n'
 					to_string += 'Check this.'
-					import pdb; pdb.set_trace()
 					raise Exception(to_string)
 
 			else:

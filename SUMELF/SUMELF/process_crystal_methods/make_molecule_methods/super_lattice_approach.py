@@ -85,9 +85,7 @@ def create_molecule_using_super_lattice_approach(molecule_in_crystal, crystal_gr
 		print('This means there is something wrong with the program, as the completed component is not complete')
 		print('Showing this "completed" component, and the molecule in the crystal.')
 		from ase.visualise import view
-		view([complete_molecule_graph,molecule_in_crystal])
 		print('ckeck this out')
-		import pdb; pdb.set_trace()
 		print('This program will now stop without finishing')
 		exit()
 
@@ -103,7 +101,6 @@ def create_molecule_using_super_lattice_approach(molecule_in_crystal, crystal_gr
 
 	# Seventh, make the molecule_graph from super_molecule_graph.
 	# Need to work on this still
-	import pdb; pdb.set_trace()
 	raise Exception('Need to make a method for obtaining the molecule_graph from crystal_graph')
 
 	# Eighth, return complete_molecule and molecule_graph

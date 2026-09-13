@@ -102,7 +102,6 @@ def obtain_H_bonding_vectors(original_molecule, molecule_graph, index_to_attach_
 			H_to_H_acceptor_distance = distance_BETWEEN_acceptor_atom_position_AND_central_atom_position - bond_length_between_H_and_central_atom
 			# Make sure that the distance is not less than 0. Good sign that something has gone wrong.
 			if H_to_H_acceptor_distance <= 0.0:
-				import pdb; pdb.set_trace()
 				raise Exception('Huh?')
 
 			# 8.2.3.3: If the hydrogen and the H acceptor atom are within the max h_bnding distance, report this info (assume linear direction of bond from H-donor to H to H-acceptor).

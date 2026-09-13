@@ -45,7 +45,7 @@ The Supporting Methods for Electronic Functions (SUMELF) program contains variou
 
 ## Installation
 
-It is recommended to read the installation page before using the SUMELF program. See [Installation: Setting Up SUMELF and Pre-Requisites Packages](https://geoffreyweal.github.io/SUMELF/Installation) for more information. Note that you can install SUMELF through ``pip3`` and ``conda``. 
+It is recommended to read the installation page before using the SUMELF program. See [Installation: Setting Up SUMELF and Pre-Requisites Packages](https://geoffreyweal.github.io/SUMELF/Installation) for more information. Note that SUMELF is not published to PyPI or conda; install it from GitHub with ``pip3 install --upgrade --user git+https://github.com/geoffreyweal/SUMELF.git``. 
 
 ## Guide To Using SUMELF
 

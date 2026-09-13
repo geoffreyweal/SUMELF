@@ -84,11 +84,8 @@ def add_hydrogens_to_molecule(no_of_hydrogen_to_add_to_mol, molecule, molecule_g
 
 		# 6.6: Check that the molecule does not contain more than 4 neighbours. We are only deal with molecules that obey the octet rule. 
 		if total_number_of_neighbours_after_hydrogens_added > 4:
-			from ase.visualize import view
-			view(molecule)
 			print('Can not add hydrogens to an atoms that will have more than 4 atoms around it in total. index: '+str(node_index))
 			print(node_index, total_number_of_neighbours_after_hydrogens_added, hybridisation, formal_charge)
-			import pdb; pdb.set_trace()
 			exit()
 
 		# 6.7: Only include hydrogens the unit vectors for non-hydrogen bonds. 
@@ -119,7 +116,6 @@ def add_hydrogens_to_molecule(no_of_hydrogen_to_add_to_mol, molecule, molecule_g
 			toString += 'len(new_bonding_unit_vectors) = '+str(len(new_bonding_unit_vectors))+'\n'
 			toString += 'This indicates there is a programming error. Check this out.'
 			print(toString)
-			import pdb; pdb.set_trace()
 			raise Exception(toString)
 
 		# --------------------------------------------------------------------------------------------------------

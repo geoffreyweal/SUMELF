@@ -89,7 +89,6 @@ def check_for_hydrogen_bonding(copied_molecule, copy_molecule_graph, index_to_at
 
 	if not len(hydrogen_bonding_atoms) == 0:
 		from ase.visualize import view
-		import pdb; pdb.set_trace()
 
 
 

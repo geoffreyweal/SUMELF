@@ -164,8 +164,6 @@ def get_molecule_cell_displacement(element1, element2, position1, position2, cel
 			crystal_debug = crystal.copy()
 			crystal_debug[m_in_c_index1].symbol = 'Ar'
 			crystal_debug[m_in_c_index2].symbol = 'Ar'
-			from ase.visualize import view
-			view([crystal,crystal_debug])
 			to_string += 'Maximum bonds length between '+str(element1)+' and '+str(element2)+': '+str(covalent_bond_distance)+'\n'
 			to_string += 'Shortest cell diplacement vector(s): '+str(shortest_displacement)+'\n'
 			to_string += 'Shortest bond length '+str(shortest_bondlength)+' A.\n'
@@ -199,9 +197,6 @@ def get_molecule_cell_displacement(element1, element2, position1, position2, cel
 	for displacement in cell_points:
 		bondlength = get_distance(position1, position2 + displacement)
 		print(str(displacement)+': '+str(bondlength))
-	from ase.visualize import view
-	view(molecule_in_crystal)
-	import pdb; pdb.set_trace()
 	print('This program will not finish without completing')
 	exit()
 
@@ -254,7 +249,6 @@ def connect_bonds_together(molecule_in_crystal, disconnected_atom_pairs, crystal
 			print('subgraph1: '+str(subgraph1))
 			print('subgraph2: '+str(subgraph2))
 			print('Check this out')
-			import pdb; pdb.set_trace()
 			print('This program will not finish without completing')
 			exit()
 

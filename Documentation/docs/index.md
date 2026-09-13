@@ -50,7 +50,7 @@ It is recommended to read the installation page before using the SUMELF program.
 
 ## Guide To Using SUMELF
 
-The SUMELF program contains methods used for multiple programs, so you don't use SUMELF directly. However, SUMELF does contain several modules that can be helpful across these programs. See [How To Use The SUMELF Program](Using_The_SUMELF_Program.md) to learn about how to use these modules. 
+The SUMELF program contains methods used for multiple programs, so you don't use SUMELF directly. However, SUMELF does contain several modules that can be helpful across these programs. See [Programs Available in SUMELF](Programs_Available_in_SUMELF.md) for the ``sumelf`` terminal commands, and [Python Methods Available in SUMELF](Python_Methods_Available_in_SUMELF.md) for the python methods you can import from SUMELF. 
 
 ## The Grand Scheme
 

@@ -2,7 +2,7 @@ import os
 from setuptools import setup
 
 def get_version_number():
-  path_to_written_version = 'sumelf/__init__.py'
+  path_to_written_version = 'SUMELF/__init__.py'
   with open(path_to_written_version) as initPY:
     for line in initPY:
       if line.startswith('__version__'):
@@ -27,13 +27,13 @@ def find_packages(root):
         rel_dirname = os.path.relpath(dirname)
         if not rel_dirname in packages:
           packages.append(rel_dirname)
-  return sorted(packages)
+  return sorted(package.replace(os.sep, '.') for package in packages)
 
 def find_scripts():
   scripts = []
-  scripts_folders = []
+  scripts_folders = ['Subsidiary_Programs']
   for scripts_folder in scripts_folders:
-    for root, dirs, files in os.walk('sumelf/'+scripts_folder, topdown=False):
+    for root, dirs, files in os.walk('SUMELF/'+scripts_folder, topdown=False):
       for file in files:
         if file.endswith('.py') and not 'Main' in file:
           filepath = os.path.relpath(os.path.join(root, file))
@@ -42,19 +42,20 @@ def find_scripts():
   return sorted(scripts)
 
 setup(name='SUMELF',
-      packages=find_packages(root='sumelf'),
-      scripts=['bin/sumelf']+find_scripts(),
+      packages=find_packages(root='SUMELF'),
+      entry_points={'console_scripts': ['sumelf=SUMELF.cli.main:main']},
+      scripts=find_scripts(),
       version=get_version_number(),
       description="This program is designed to provide supporting algorithms for the ACSD, RSGC, and ECCP programs.",
       long_description=get_long_description(),
       long_description_content_type='text/markdown',
       author='Dr. Geoffrey Weal, Dr. Josh Sutton, Dr. Chayanit Wechwithayakhlung, Dr. Daniel Packwood, Dr. Paul Hume, Prof. Justin Hodgkiss',
       author_email='paul.hume@vuw.ac.nz',
-      download_url = 'https://github.com/geoffreyweal/RSGC/archive/v'+str(get_version_number())+'.tar.gz',
+      download_url = 'https://github.com/geoffreyweal/SUMELF/archive/v'+str(get_version_number())+'.tar.gz',
       license='GNU AFFERO GENERAL PUBLIC LICENSE',
       zip_safe=False,
       keywords = ['victoria-university', 'victoria-university-of-wellington', 'university-of-wellington', 'wellington-university', 'atomic-simulation-environment', 'organic-photovoltaics', 'OPV'],
-      install_requires=['numpy', 'ase>=3.19.0', 'packaging', 'networkx', 'tqdm'],
+      install_requires=['numpy', 'ase>=3.19.0', 'scipy', 'networkx', 'packaging', 'tqdm'],
       classifiers=[
         'Development Status :: 3 - Alpha',      # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
         'Intended Audience :: Science/Research',      # Define that your audience are developers

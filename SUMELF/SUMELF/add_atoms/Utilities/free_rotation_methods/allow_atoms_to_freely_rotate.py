@@ -103,9 +103,6 @@ def allow_atoms_to_freely_rotate(molecule, molecule_graph, atom_indices_to_allow
 	molecule.set_positions(molecule_positions)
 
 	#'''
-	from ase.visualize import view
-	view([debugging_molecule, molecule])
-	import pdb; pdb.set_trace()
 	raise Exception('Check this method is working Angles are probably not conserved.')
 	#'''
 

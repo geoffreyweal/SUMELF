@@ -47,7 +47,6 @@ def get_dimer_details_data(path_to_All_Dimer_Information_folder, eccp_informatio
 			to_string += f'However, it is: {line}\n'
 			to_string += 'Check this'
 			print(to_string)
-			import pdb; pdb.set_trace()
 			raise Exception(to_string)
 
 		# 4.2: Collect the list of symmetric molecule: unique molecule from the rest of the "path_to_Conformationally_Unique_Molecule_Information_file" file.

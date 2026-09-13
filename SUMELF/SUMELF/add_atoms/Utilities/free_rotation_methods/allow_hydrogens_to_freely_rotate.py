@@ -217,9 +217,6 @@ def allow_hydrogens_to_freely_rotate(molecule, molecule_graph, hydrogen_indices_
 	molecule.set_positions(molecule_positions)
 
 
-	from ase.visualize import view
-	view([debugging_molecule, copied_molecule])
-	import pdb; pdb.set_trace()
 	raise Exception('Check this method is working.')
 
 

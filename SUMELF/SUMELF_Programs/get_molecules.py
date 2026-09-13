@@ -18,7 +18,7 @@ crystal_database_foldername_DEFAULT = ['crystal_database']
 output_molecules_crystal_database_foldername_DEFAULT = [crystal_database_foldername_DEFAULT[0]+'_molecules']
 
 class CLICommand:
-	"""This method is designed to repair crystals that you have indicated need repairing, based on how you have indicated your crystal needs to be repaired in the "repair_crystals.py" file.
+	"""Extract the individual molecules from each crystal file in the given folder and write them to disk.
 	"""
 
 	@staticmethod
