@@ -2,7 +2,7 @@
 
 __name__    = 'SUMELF (Supporting Methods for Electronic Functions) Program'
 __version__ = '0.85.0'
-__author__  = 'Dr. Geoffrey Weal, Dr. Chayanit Wechwithayakhlung, Dr. Josh Sutton, Dr. Daniel Packwood, Dr. Paul Hume, Prof. Justin Hodgkiss'
+__author__  = 'Dr. Geoffrey Weal, Dr. Chayanit Wechwithayakhlung, Dr. Josh Sutton, Assoc. Prof. Daniel Packwood, Dr. Paul Hume, Prof. Justin Hodgkiss'
 
 import sys, importlib.util
 
