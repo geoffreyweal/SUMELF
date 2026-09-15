@@ -43,6 +43,12 @@ def find_scripts():
 
 setup(name='SUMELF',
       packages=find_packages(root='SUMELF'),
+      # Without this, setuptools installs only the .py files and silently drops
+      # everything else, so an installed SUMELF has none of the solvent mol or
+      # graph files. It then fails at run time with "Could not find the folder
+      # containing solvent mol files", pointing at a folder that only exists in
+      # the repository it was installed from.
+      package_data={'SUMELF.SUMELF': ['solvent_files/*', 'solvent_files/*/*']},
       entry_points={'console_scripts': ['sumelf=SUMELF.cli.main:main']},
       scripts=find_scripts(),
       version=get_version_number(),
