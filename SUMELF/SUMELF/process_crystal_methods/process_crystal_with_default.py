@@ -117,7 +117,8 @@ def process_crystal(original_crystal, name='crystal', take_shortest_distance=Fal
 
 	# Second, obtain the crystal graph
 	#         * Also, update the crystal object so it doesnt contain bonding/neighbours information
-	crystal, crystal_graph = obtain_graph(original_crystal,mic=True,to_print=False,name=name,no_of_cpus=no_of_cpus,bonds_to_ignore=bonds_to_ignore)
+	crystal = original_crystal
+	crystal_graph = obtain_graph(original_crystal,mic=True,to_print=False,name=name,no_of_cpus=no_of_cpus,bonds_to_ignore=bonds_to_ignore)
 
 	# Third, determine each of the indicidual molecules in the crystal.
 	if logger is not None:

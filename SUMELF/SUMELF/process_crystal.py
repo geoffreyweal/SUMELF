@@ -66,7 +66,7 @@ def process_crystal(filepath, crystal_graph=None, bonds_to_ignore=None, take_sho
 
 	# Second, get the graph of the crystal.
 	if crystal_graph is None:
-		crystal, crystal_graph = obtain_graph(crystal,name='crystal')
+		crystal_graph = obtain_graph(crystal,name='crystal')
 
 	# Third, determine what features are constained in the file.
 	has_MoleculeList       = ('MoleculeList'     in get_node_property_names_from_graph(crystal_graph)) # if (crystal_graph is not None) else False

@@ -78,7 +78,7 @@ def Run_method(crystal_database_foldername=crystal_database_foldername_DEFAULT, 
 		crystal = read(crystal_database_foldername+'/'+crystal_file)
 
 		# 5.4: Get the graph of the crystal.
-		crystal, crystal_graph = obtain_graph(crystal,name=crystal_name)
+		crystal_graph = obtain_graph(crystal,name=crystal_name)
 
 		# 5.5: Get the molecules and the graphs associated with each molecule in the crystal.
 		molecules, molecule_graphs, SolventsList, symmetry_operations, cell = process_crystal(crystal,crystal_graph=crystal_graph,take_shortest_distance=True,return_list=False,logger=None,print_progress=False)

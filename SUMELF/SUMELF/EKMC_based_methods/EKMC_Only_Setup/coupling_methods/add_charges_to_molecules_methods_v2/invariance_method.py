@@ -66,9 +66,9 @@ def assigned_ATCs_to_molecules_invariance_method(ATC_ase_objects, molecules, mol
 		#ATC_graph        = deepcopy(molecule_graphs[unique_mol_index])
 		ATC_graphs[ATC_index] = deepcopy(molecule_graphs[ATC_index])
 		'''
-		ATC_ase_object_updated, ATC_graph = obtain_graph(ATC_ase_object)
+		ATC_graph = obtain_graph(ATC_ase_object)
 		ATC_graphs[ATC_index]      = ATC_graph
-		ATC_ase_objects[ATC_index] = ATC_ase_object_updated
+		ATC_ase_objects[ATC_index] = ATC_ase_object
 		'''
 
 	# Obtain all molecules without hydrogen
